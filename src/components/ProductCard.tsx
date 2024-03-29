@@ -1,6 +1,8 @@
 import { Card, CardContent, Typography, CardActions, Box, CardMedia, Link } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { FC } from "react";
+import { useCart } from "@/logic/CardContext";
+import { Product } from "@/logic/types";
 
 const fontStyle = {
   fontFamily: "Montserrat",
@@ -8,17 +10,9 @@ const fontStyle = {
   fontSize: "17px",
 };
 
-interface ProductCardProps {
-  key: number;
-  product_image: string;
-  product_name: string;
-  product_price: string;
-  product_discount: string | null;
-  product_rate: string;
-  isAvailable: boolean;
-}
+export const ProductCard: FC<Product> = (props) => {
+  const { addToCart } = useCart();
 
-export const ProductCard: FC<ProductCardProps> = (props) => {
   return (
     <Card
       sx={{
@@ -75,13 +69,19 @@ export const ProductCard: FC<ProductCardProps> = (props) => {
             </Box>
             <CardActions>
               <Link
-                href='#'
                 color='inherit'
                 sx={{
                   fontStyle,
                   textDecoration: "none",
                   pointerEvents: props.isAvailable ? "auto" : "none",
-                }}>
+                  transition: props.isAvailable ? "0.3s" : "none",
+                  "&:hover": props.isAvailable
+                    ? {
+                        transform: "scale(1.2)",
+                      }
+                    : {},
+                }}
+                onClick={() => addToCart(props)}>
                 Купить
               </Link>
             </CardActions>

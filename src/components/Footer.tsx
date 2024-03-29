@@ -6,21 +6,6 @@ import TelegramIcon from "../assets/Telegram.svg";
 import VKIcon from "../assets/VK.svg";
 import WhatsAppIcon from "../assets/Whatsapp.svg";
 
-// const footer_text = [
-//   {
-//     footer_text: "Избранное",
-//   },
-//   {
-//     footer_text: "Корзина",
-//   },
-//   {
-//     footer_text: "Контакты",
-//   },
-//   {
-//     footer_text: "Условия сервиса",
-//   },
-// ];
-
 const social_networks = [
   {
     icon: VKIcon,
@@ -46,11 +31,9 @@ export const Footer = () => {
         justifyContent: "space-between",
         bottom: 0,
         position: "static",
+        boxShadow: "10px 20px 20px rgba(0,0,0,0.05)",
       }}>
       <Logo />
-      {/* {footer_text.map((text, index) => (
-        <FooterText key={index} footer_text={text.footer_text} />
-      ))} */}
       <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
         <FooterText footer_text='Избранное' />
         <FooterText footer_text='Корзина' />

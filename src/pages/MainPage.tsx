@@ -1,5 +1,4 @@
-import React from "react";
-import { Footer } from "@/components/Footer";
+import React, { useState } from "react";
 import { ProductCard } from "@/components/ProductCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Box } from "@mui/material";
@@ -9,6 +8,7 @@ import EarPodsInBox from "../assets/apple-earpods-box.png";
 import AirPods from "../assets/apple-airpods.png";
 import Gerlax from "../assets/gerlax.png";
 import Borofone from "../assets/borophone.png";
+import { Product } from "@/logic/types";
 
 const sections = [
   {
@@ -105,6 +105,12 @@ const sections = [
 ];
 
 export const MainPage = () => {
+  const [cart, setCart] = useState<Product[]>([]);
+
+  const addToCart = (product: Product) => {
+    setCart((currentCart: Product[]) => [...currentCart, product]);
+  };
+
   return (
     <Box>
       {sections.map((section) => (
@@ -113,13 +119,14 @@ export const MainPage = () => {
           <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 3 }}>
             {section.products.map((product) => (
               <ProductCard
-                key={product.id}
+                id={product.id}
                 product_image={product.product_image}
                 product_name={product.product_name}
                 product_price={product.product_price}
                 product_discount={product.product_discount}
                 product_rate={product.product_rate}
                 isAvailable={product.isAvailable}
+                onAddToCart={() => addToCart(product)}
               />
             ))}
           </Box>

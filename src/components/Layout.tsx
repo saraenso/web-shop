@@ -34,7 +34,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               </IconButton>
               <Link component={NavLink} to={`${AppRoutes.CART}`}>
                 <IconButton sx={{ color: "838383" }} onClick={() => {}}>
-                  <Badge badgeContent={1} color='warning'>
+                  <Badge badgeContent={2} color='warning'>
                     <ShoppingCartOutlinedIcon />
                   </Badge>
                 </IconButton>
