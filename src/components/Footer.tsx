@@ -5,16 +5,20 @@ import LanguageIcon from "@mui/icons-material/Language";
 import TelegramIcon from "../assets/Telegram.svg";
 import VKIcon from "../assets/VK.svg";
 import WhatsAppIcon from "../assets/Whatsapp.svg";
+import { Link } from "react-router-dom";
 
 const social_networks = [
   {
     icon: VKIcon,
+    link: "https://vk.com/",
   },
   {
     icon: TelegramIcon,
+    link: "https://web.telegram.org/",
   },
   {
     icon: WhatsAppIcon,
+    link: "https://web.whatsapp.com/",
   },
 ];
 
@@ -56,7 +60,14 @@ export const Footer = () => {
             alignItems: "center",
           }}>
           {social_networks.map((network, index) => (
-            <img key={index} src={network.icon} alt='social_network' />
+            <Link to={network.link} target='_blank'>
+              <img
+                style={{ cursor: "pointer" }}
+                key={index}
+                src={network.icon}
+                alt='social_network'
+              />
+            </Link>
           ))}
         </Box>
       </Box>
