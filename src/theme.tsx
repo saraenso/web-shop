@@ -6,4 +6,7 @@ export const theme = createTheme({
       default: "#EAEAEA",
     },
   },
+  typography: {
+    fontFamily: "Montserrat, sans-serif",
+  },
 });

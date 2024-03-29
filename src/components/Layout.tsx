@@ -5,8 +5,12 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { NavLink } from "react-router-dom";
 import { AppRoutes } from "@/router/routes";
 import { Footer } from "./Footer";
+import { useCart } from "@/logic/CardContext";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
+  const { cart } = useCart();
+
+  const totalQuantity = cart.reduce((acc, item) => acc + (item.quantity ?? 1), 0);
   return (
     <Box>
       <Box
@@ -25,16 +29,21 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               display: "flex",
               justifyContent: "space-between",
             }}>
-            <Logo />
-            <Box>
+            <Link
+              component={NavLink}
+              to={`${AppRoutes.MAIN}`}
+              sx={{ textDecoration: "none", color: "inherit" }}>
+              <Logo />
+            </Link>
+            <Box sx={{ display: "flex", gap: 2 }}>
               <IconButton sx={{ color: "838383" }} onClick={() => {}}>
-                <Badge badgeContent={2} color='warning'>
+                <Badge badgeContent={0} color='warning'>
                   <FavoriteBorderIcon />
                 </Badge>
               </IconButton>
               <Link component={NavLink} to={`${AppRoutes.CART}`}>
                 <IconButton sx={{ color: "838383" }} onClick={() => {}}>
-                  <Badge badgeContent={2} color='warning'>
+                  <Badge badgeContent={totalQuantity} color='warning'>
                     <ShoppingCartOutlinedIcon />
                   </Badge>
                 </IconButton>
