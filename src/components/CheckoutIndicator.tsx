@@ -1,6 +1,15 @@
+import { useCart } from "@/logic/CardContext";
 import { Button, Typography, Box } from "@mui/material";
 
 export const CheckoutIndicator = () => {
+  const { cart } = useCart();
+
+  const totalPrice = cart.reduce((acc, item) => {
+    const itemPrice = parseFloat(item.product_price);
+    const itemTotal = itemPrice * (item.quantity ?? 1);
+    return acc + itemTotal;
+  }, 0);
+
   return (
     <Box sx={{}}>
       <Box
@@ -17,7 +26,9 @@ export const CheckoutIndicator = () => {
         <Box>
           <Box sx={{ display: "flex", justifyContent: "space-between", p: 2 }}>
             <Typography sx={{ fontSize: 15, fontWeight: 600 }}>ИТОГО</Typography>
-            <Typography sx={{ fontSize: 15, fontWeight: 600 }}>Р 2927</Typography>
+            <Typography sx={{ fontSize: 15, fontWeight: 600 }}>
+              ₽ {totalPrice.toFixed(2)}
+            </Typography>
           </Box>
           <Button
             variant='contained'
