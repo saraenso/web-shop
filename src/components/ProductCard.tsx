@@ -27,6 +27,14 @@ export const ProductCard: FC<ProductCardProps> = (props) => {
         p: 1,
         boxShadow: "10px 20px 10px rgba(0,0,0,0.05)",
         opacity: props.isAvailable ? 1 : 0.5,
+        transition: props.isAvailable ? "0.3s" : "none",
+        "&:hover": props.isAvailable
+          ? {
+              boxShadow: "15px 25px 15px rgba(0,0,0,0.1)",
+              transform: "scale(1.05)",
+            }
+          : {},
+        cursor: props.isAvailable ? "pointer" : "not-allowed",
       }}>
       <CardContent sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>

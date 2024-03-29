@@ -44,6 +44,8 @@ export const Footer = () => {
         p: 4,
         display: "flex",
         justifyContent: "space-between",
+        bottom: 0,
+        position: "static",
       }}>
       <Logo />
       {/* {footer_text.map((text, index) => (

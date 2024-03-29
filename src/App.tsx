@@ -1,17 +1,10 @@
-import { type FC } from "react";
-import { Routes, Route } from "react-router-dom";
+import { ReactElement, type FC } from "react";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { MainPage } from "./pages/MainPage";
+import { AppRouter } from "./router/AppRouter";
 
-const App: FC = () => {
-  return (
-    <Routes>
-      <Route path='/' element={<MainPage />} />
-    </Routes>
-  );
+export const App: FC = (): ReactElement => {
+  return <AppRouter />;
 };
-
-export default App;

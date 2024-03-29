@@ -1,6 +1,5 @@
 import React from "react";
 import { Footer } from "@/components/Footer";
-import { Layout } from "@/components/Layout";
 import { ProductCard } from "@/components/ProductCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Box } from "@mui/material";
@@ -107,7 +106,7 @@ const sections = [
 
 export const MainPage = () => {
   return (
-    <Layout>
+    <Box>
       {sections.map((section) => (
         <React.Fragment key={section.section_title}>
           <SectionHeader title={section.section_title} />
@@ -126,7 +125,6 @@ export const MainPage = () => {
           </Box>
         </React.Fragment>
       ))}
-      <Footer />
-    </Layout>
+    </Box>
   );
 };
