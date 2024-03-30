@@ -25,7 +25,7 @@
     /* Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*", "./build/*", ""],
+      "@/*": ["src/*", "./dist/*", ""],
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"]
