@@ -105,7 +105,7 @@ const sections = [
 ];
 
 export const MainPage = () => {
-  const [cart, setCart] = useState<Product[]>([]);
+  const [, setCart] = useState<Product[]>([]);
 
   const addToCart = (product: Product) => {
     setCart((currentCart: Product[]) => [...currentCart, product]);
