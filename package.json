@@ -64,6 +64,7 @@
     "postcss": "^8.4.32",
     "prettier": "^3.1.0",
     "sharp": "^0.33.0",
+    "svgo": "^3.2.0",
     "terser": "^5.25.0",
     "typescript": "^5.2.2",
     "unplugin-inject-preload": "^2.0.0",
