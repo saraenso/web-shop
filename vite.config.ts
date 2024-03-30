@@ -9,7 +9,7 @@ import browserslistToEsbuild from "browserslist-to-esbuild";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/web-shop/",
+  base: "https://saraenso.github.io/web-shop",
   plugins: [
     react(),
     splitVendorChunkPlugin(),
