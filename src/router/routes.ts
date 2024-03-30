@@ -1,5 +1,5 @@
 export enum AppRoutes {
-  MAIN = "/web-shop",
+  MAIN = "/",
   CART = "/cart",
   NOT_FOUND = "*",
 }
