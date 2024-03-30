@@ -1,14 +1,15 @@
-import { defineConfig, splitVendorChunkPlugin } from 'vite';
-import path from 'path';
-import react from '@vitejs/plugin-react';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
-import autoprefixer from 'autoprefixer';
-import browserslistToEsbuild from 'browserslist-to-esbuild';
+import { defineConfig, splitVendorChunkPlugin } from "vite";
+import path from "path";
+import react from "@vitejs/plugin-react";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import autoprefixer from "autoprefixer";
+import browserslistToEsbuild from "browserslist-to-esbuild";
 // import legacy from '@vitejs/plugin-legacy';
 // import UnpluginInjectPreload from 'unplugin-inject-preload/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/web-shop/",
   plugins: [
     react(),
     splitVendorChunkPlugin(),
@@ -36,16 +37,16 @@ export default defineConfig({
       plugins: [autoprefixer()],
     },
     modules: {
-      localsConvention: 'camelCase',
-      generateScopedName: '[name]-[local]-[hash:base64:4]',
+      localsConvention: "camelCase",
+      generateScopedName: "[name]-[local]-[hash:base64:4]",
     },
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@components': path.resolve(__dirname, '/src/components'),
-      '@pages': path.resolve(__dirname, '/src/pages'),
-      '@assets': path.resolve(__dirname, '/src/assets'),
+      "@": path.resolve(__dirname, "./src"),
+      "@components": path.resolve(__dirname, "/src/components"),
+      "@pages": path.resolve(__dirname, "/src/pages"),
+      "@assets": path.resolve(__dirname, "/src/assets"),
     },
   },
   build: {
