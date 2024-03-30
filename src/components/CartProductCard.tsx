@@ -49,6 +49,11 @@ export const CartProductCard: FC<CartProductCardProps> = ({ product }) => {
         pl: 2,
         pr: 1,
         boxShadow: "10px 20px 10px rgba(0,0,0,0.05)",
+        transition: "0.3s",
+        "&:hover": {
+          boxShadow: "0 8px 20px 20px rgba(255, 255, 255, 0.6)",
+          transform: "translateY(-2px)",
+        },
       }}>
       <CardContent>
         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -101,7 +106,11 @@ export const CartProductCard: FC<CartProductCardProps> = ({ product }) => {
               gap: 20,
             }}>
             <Link onClick={handleRemoveProduct} sx={{ cursor: "pointer" }}>
-              <DeleteOutlineIcon sx={{ color: "#DF6464" }} />
+              <DeleteOutlineIcon
+                sx={{
+                  color: "#DF6464",
+                }}
+              />
             </Link>
             <Typography sx={{ fontWeight: "600" }}>
               {parseInt(product.product_price) * productQuantity} ₽

@@ -29,22 +29,17 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               display: "flex",
               justifyContent: "space-between",
             }}>
-            <Link
-              component={NavLink}
-              to={`${AppRoutes.MAIN}`}
-              sx={{ textDecoration: "none", color: "inherit" }}>
-              <Logo />
-            </Link>
+            <Logo />
             <Box sx={{ display: "flex", gap: 2 }}>
-              <IconButton sx={{ color: "838383" }} onClick={() => {}}>
+              <IconButton onClick={() => {}}>
                 <Badge badgeContent={0} color='warning'>
-                  <FavoriteBorderIcon />
+                  <FavoriteBorderIcon sx={{ color: "#838383" }} />
                 </Badge>
               </IconButton>
               <Link component={NavLink} to={`${AppRoutes.CART}`}>
-                <IconButton sx={{ color: "838383" }} onClick={() => {}}>
+                <IconButton onClick={() => {}}>
                   <Badge badgeContent={totalQuantity} color='warning'>
-                    <ShoppingCartOutlinedIcon />
+                    <ShoppingCartOutlinedIcon sx={{ color: "#838383" }} />
                   </Badge>
                 </IconButton>
               </Link>

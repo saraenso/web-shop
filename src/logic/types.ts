@@ -8,4 +8,5 @@ export interface Product {
   isAvailable: boolean;
   onAddToCart?: () => void;
   quantity?: number | null;
+  onRemove?: (productId: number) => void;
 }

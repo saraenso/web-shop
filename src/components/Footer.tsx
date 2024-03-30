@@ -1,11 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import { Logo } from "./Logo";
 import { FooterText } from "./FooterText";
 import LanguageIcon from "@mui/icons-material/Language";
 import TelegramIcon from "../assets/Telegram.svg";
 import VKIcon from "../assets/VK.svg";
 import WhatsAppIcon from "../assets/Whatsapp.svg";
-import { Link } from "react-router-dom";
+import { SocialNetworkIcon } from "./SocialNetworkIcon";
 
 const social_networks = [
   {
@@ -47,8 +47,28 @@ export const Footer = () => {
         <FooterText footer_text='Условия сервиса' />
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <LanguageIcon />
-          <Typography>Рус</Typography>
-          <Typography>Eng</Typography>
+          <Link
+            sx={{
+              cursor: "pointer",
+              textDecoration: "none",
+              color: "inherit",
+              "&:hover": {
+                color: "#FFA542",
+              },
+            }}>
+            Рус
+          </Link>
+          <Link
+            sx={{
+              cursor: "pointer",
+              textDecoration: "none",
+              color: "inherit",
+              "&:hover": {
+                color: "#FFA542",
+              },
+            }}>
+            Eng
+          </Link>
         </Box>
       </Box>
       <Box sx={{ alignItems: "flex-start" }}>
@@ -60,14 +80,7 @@ export const Footer = () => {
             alignItems: "center",
           }}>
           {social_networks.map((network, index) => (
-            <Link to={network.link} target='_blank'>
-              <img
-                style={{ cursor: "pointer" }}
-                key={index}
-                src={network.icon}
-                alt='social_network'
-              />
-            </Link>
+            <SocialNetworkIcon key={index} icon={network.icon} link={network.link} />
           ))}
         </Box>
       </Box>

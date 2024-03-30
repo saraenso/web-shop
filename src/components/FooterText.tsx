@@ -9,11 +9,16 @@ export const FooterText: FC<FooterTextProps> = (props) => {
   return (
     <Link
       sx={{
-        fontFamily: "Montserrat",
         fontWeight: "400",
         fontSize: 17,
         textDecoration: "none",
         color: "inherit",
+        p: 1,
+        pl: 2,
+        pr: 2,
+        "&:hover": {
+          color: "#FFA542",
+        },
       }}
       href='#'>
       {props.footer_text}
